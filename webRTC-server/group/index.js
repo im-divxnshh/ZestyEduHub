@@ -50,6 +50,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(4000, () => {
-  console.log('Signaling server running on port 4000');
+server.listen(5000, () => {
+  console.log('Signaling server running on port 5000');
 });

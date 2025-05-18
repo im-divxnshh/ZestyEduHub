@@ -1,5 +1,5 @@
   import React, { useEffect, useRef, useState } from 'react';
-  import { FaMicrophone, FaMicrophoneSlash, FaVideo, FaVideoSlash, FaCode, FaShareAlt } from 'react-icons/fa';
+  import { FaVideo, FaVideoSlash, FaCode, FaShareAlt } from 'react-icons/fa';
   import io from 'socket.io-client';
   import { storage, firestore } from '../../../utils/firebaseConfig'; 
 
