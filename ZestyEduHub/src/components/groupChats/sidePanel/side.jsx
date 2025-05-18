@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
 import { VideoIcon, XIcon, ChevronLeft, ChevronRight, VideoOff, User, ShareIcon, CodeIcon } from 'lucide-react';
 
+import DocumentModal from '../modals/DocumentModal';
+import ResourceModal from "../modals/ResourceModal";
+
 const SIGNALING_SERVER_URL = 'http://localhost:5000';
 
 export default function GroupVideoPanel({ currentUser, groupId }) {
@@ -15,6 +18,8 @@ export default function GroupVideoPanel({ currentUser, groupId }) {
   const peersRef = useRef({});
   const [remoteStreams, setRemoteStreams] = useState({});
   const [remoteUsers, setRemoteUsers] = useState({});
+  const [isDocumentModalOpen, setDocumentModalOpen] = useState(false);
+  const [isResourceModalOpen, setResourceModalOpen] = useState(false);
 
   const enableVideo = async () => {
     try {
@@ -192,11 +197,19 @@ export default function GroupVideoPanel({ currentUser, groupId }) {
       <div className="fixed mt-44 right-4 transform -translate-y-1/2 z-50">
         <div className="flex space-x-3 bg-gray-900 p-2 rounded-full shadow-lg">
           <IconButton icon={<VideoIcon />} label="Video" color="bg-blue-500" onClick={() => setVideoPanelOpen(true)} />
-          <IconButton icon={<CodeIcon />} label="IDE" color="bg-yellow-500" />
-          <IconButton icon={<ShareIcon />} label="Share Resources" color="bg-purple-500" />
+          <IconButton icon={<CodeIcon />} label="IDE" color="bg-yellow-500" onClick={() => setDocumentModalOpen(true)} />
+          <IconButton icon={<ShareIcon />} label="Share Resources" color="bg-purple-500" onClick={() => setResourceModalOpen(true)} />
         </div>
       </div>
 
+
+      {isDocumentModalOpen && (
+        <DocumentModal groupId={groupId} onClose={() => setDocumentModalOpen(false)} />
+      )}
+
+      {isResourceModalOpen && (
+        <ResourceModal groupId={groupId} onClose={() => setResourceModalOpen(false)} />
+      )}
 
       {isVideoPanelOpen && (
         <div className={`fixed top-0 left-0 h-full bg-white shadow-2xl z-40 transition-all duration-300 ease-in-out ${isCollapsed ? 'w-20' : 'w-[800px]'}`}>
