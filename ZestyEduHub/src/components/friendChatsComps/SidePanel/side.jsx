@@ -8,7 +8,7 @@
   import { doc, setDoc } from 'firebase/firestore';
   import DocumentModal from '../modals/DocumentModal'; 
 
-  const socket = io('http://localhost:4000');
+  const socket = io('zestyhubfriend-production.up.railway.app');
 
   const SidePanel = ({ chatId, currentUserProfile, friendProfile }) => {
     const [micEnabled, setMicEnabled] = useState(false);

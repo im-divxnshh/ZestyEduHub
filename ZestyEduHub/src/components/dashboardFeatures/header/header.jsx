@@ -40,14 +40,14 @@ const Header = () => {
         
         {/* Logo and Title Section */}
         <div className="flex items-center space-x-4">
-          <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://zestyhub.netlify.app"  rel="noopener noreferrer">
             <img 
               src="https://firebasestorage.googleapis.com/v0/b/vr-study-group.appspot.com/o/android-chrome-512x512.png?alt=media&token=9611a508-1d7e-4990-afc1-af899b1221df" 
               alt="Logo Image" 
               className="w-10 h-10 rounded-full"
             />
           </a>
-          <h1 className="text-xl font-bold text-gray-800">ZestyEdu Hub</h1>
+          <h1 href="https://zestyhub.netlify.app" className="text-xl font-bold text-gray-800">ZestyEdu Hub</h1>
         </div>
 
         {/* User Profile and Notification Section */}

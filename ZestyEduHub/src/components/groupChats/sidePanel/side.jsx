@@ -5,7 +5,7 @@ import { VideoIcon, XIcon, ChevronLeft, ChevronRight, VideoOff, User, ShareIcon,
 import DocumentModal from '../modals/DocumentModal';
 import ResourceModal from "../modals/ResourceModal";
 
-const SIGNALING_SERVER_URL = 'http://localhost:5000';
+const SIGNALING_SERVER_URL = 'zestyhubgroup-production.up.railway.app';
 
 export default function GroupVideoPanel({ currentUser, groupId }) {
   const [isVideoPanelOpen, setVideoPanelOpen] = useState(false);
